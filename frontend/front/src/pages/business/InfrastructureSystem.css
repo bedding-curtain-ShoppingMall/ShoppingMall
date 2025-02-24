@@ -1,0 +1,123 @@
+/* InfrastructureSystem.css */
+
+/* Container and title */
+.infrastructureSystem-container {
+    padding: 3rem 1rem;
+}
+
+.infrastructureSystem-title-comp-name {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.infrastructureSystem-content {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Custom card */
+.infrastructureSystem-custom-card {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.5rem; /* 둥근 모서리 설정 */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Header with background color and rounded icon */
+.infrastructureSystem-custom-header {
+    display: flex;
+    align-items: center;
+    background-color: #4e61aa;
+    padding: 0.75rem 1rem;
+    color: #ffffff;
+    border-radius: 0.5rem 0.5rem 0 0; /* 상단 모서리만 둥글게 */
+}
+
+/* Section ID styling */
+.infrastructureSystem-section-id {
+    background-color: #4e61aa;
+    color: #ffffff;
+    font-weight: bold;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.75rem;
+    font-size: 1.5rem;
+}
+
+/* Custom title in header */
+.infrastructureSystem-custom-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* List item */
+.infrastructureSystem-list {
+    padding: 1rem;
+    margin: 0;
+}
+
+.infrastructureSystem-item {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #343a40;
+    margin-bottom: 1rem;
+}
+
+.infrastructureSystem-item i {
+    color: #28a745;
+    margin-right: 0.5rem;
+    font-size: 1.1rem; /* 아이콘 크기 조정 */
+}
+
+/* Image inside item */
+.infrastructureSystem-image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+    margin-top: 1rem;
+}
+
+/* Additional image styling */
+.infrastructureSystem-introduction-image-container {
+    text-align: center;
+    margin-top: 0.3rem;
+}
+
+.infrastructureSystem-introduction-company-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    .infrastructureSystem-container {
+        padding: 1.5rem 0.5rem;
+    }
+
+    .infrastructureSystem-title-comp-name {
+        font-size: 1.5rem;
+    }
+
+    .infrastructureSystem-content {
+        font-size: 0.9rem;
+    }
+
+    .infrastructureSystem-custom-title {
+        font-size: 1.2rem;
+    }
+
+    .infrastructureSystem-item {
+        font-size: 0.9rem;
+    }
+}

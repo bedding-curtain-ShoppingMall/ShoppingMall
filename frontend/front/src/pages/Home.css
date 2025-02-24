@@ -1,0 +1,68 @@
+/* Home.css */
+
+.scroll-down-arrow {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+/* 기존 스타일 유지 */
+
+/* 스크롤 다운 화살표 스타일 */
+.scroll-down-arrow {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  font-size: 2rem; /* 화살표 아이콘 크기 */
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  /* Header 스타일 */
+  .header-navbar-container {
+    font-size: 1.5rem; /* 헤더 폰트 크기 */
+    padding: 10px; /* 모바일 간격 조정 */
+  }
+
+  /* 스크롤 다운 화살표 */
+  .scroll-down-arrow {
+    font-size: 1.5rem; /* 모바일에서 크기 축소 */
+    bottom: 15px; /* 간격 조정 */
+  }
+
+  /* Footer 스타일 */
+  .footer {
+    font-size: 0.9rem; /* 모바일 푸터 폰트 크기 조정 */
+    padding: 15px;
+  }
+
+  /* Introduction 섹션 스타일 */
+  .introduction {
+    padding: 20px;
+    font-size: 1rem; /* 모바일 폰트 크기 축소 */
+  }
+
+
+  /* 섹션 스타일 */
+  .section {
+    height: auto; /* 모바일에서 섹션 높이를 자동으로 */
+    min-height: 100vh; /* 최소 높이 설정 */
+    overflow: hidden;
+  }
+}
+
+
+.a1-container {
+  background-image: url("../../public/city_view1.jpg"); /* 이미지 경로 설정 */
+  background-size: cover; /* 이미지가 컨테이너 전체를 덮도록 설정 */
+  background-position: center; /* 이미지의 중심을 기준으로 배치 */
+  background-repeat: no-repeat; /* 이미지 반복 방지 */
+  padding: 70px 0; /* 필요한 경우 패딩 추가 */
+  /* 추가적인 스타일을 원하시면 여기에 작성하세요 */
+}

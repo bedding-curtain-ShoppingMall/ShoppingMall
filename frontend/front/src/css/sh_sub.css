@@ -1,0 +1,248 @@
+@charset "utf-8";
+
+/* =========================== SUB */
+#sub_bg {
+  position: relative;
+  width: 100%;
+  /* You can increase this height if you want more vertical space to show parallax */
+  height: 400px;
+  color: #fff;
+
+  /* The background itself */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(124, 124, 124, 0.5)),
+  url('../../public/AdobeStock_communications.jpeg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  /* The key to parallax */
+  background-attachment: fixed;
+}
+#sub_bg .txt_area {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+/* 반응형 [s] */
+@media (max-width: 1024px) {
+  #sub_bg {
+    height: 320px
+  }
+
+  #sub_bg .txt_area h2 {
+    font-size: 34px
+  }
+}
+
+@media (max-width: 768px) {
+  #sub_bg {
+    height: 270px
+  }
+
+  #sub_bg .txt_area h2 {
+    font-size: 32px
+  }
+
+  #sub_bg .txt_area span {
+    font-size: 15px
+  }
+}
+
+@media (max-width: 580px) {
+  #sub_bg {
+    height: 240px
+  }
+
+  #sub_bg .txt_area h2 {
+    font-size: 30px
+  }
+
+  #sub_bg .txt_area span {
+    font-size: 14px
+  }
+}
+
+@media (max-width: 380px) {
+  #sub_bg {
+    width: 50%;
+    height: 100px; /* 높이 조절 */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../../public/AdobeStock_communications.jpeg); /* 배경 유지 */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  #sub_bg .txt_area h2 {
+    margin-bottom: 0px;
+    font-size: 16px;
+    color: #000
+  }
+
+  #sub_bg .txt_area span {
+    display: none
+  }
+  head-banner-text-about {
+    color: #ffffff; /* 텍스트 색상 */
+    font-size: 1rem; /* 텍스트 크기 조정 */
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 가독성을 위한 텍스트 그림자 */
+  }
+}
+
+/* 반응형 [e] */
+
+/* =========================== SNB */
+#sh_snb {
+  overflow: hidden;
+  display: table;
+  margin: 0 auto;
+}
+
+#sh_snb li {
+  float: left
+}
+
+#sh_snb li a {
+  display: block;
+  position: relative;
+  height: 60px;
+  font-size: 16px;
+  padding: 0 35px;
+  line-height: 60px;
+  letter-spacing: -.2px;
+  -webkit-transition: all .3s;
+  transition: all .3s
+}
+
+#sh_snb li a:after {
+  display: block;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #aaa;
+  -webkit-transition: all .3s;
+  transition: all .3s
+}
+
+#sh_snb li a:hover:after {
+  width: 100%
+}
+
+#sh_snb li.snb_on a:after {
+  width: 100%;
+  background-color: #e1ad37
+}
+#sh_snb li.snb_on a {
+  color: #4e61aa; /* 클릭(활성화) 시 글씨 색상 변경 */
+  background-color: #ffffff
+}
+/* =========================== PAGE */
+#greeting {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: -.2px;
+  color: #777;
+  font-family: 'Noto Sans KR'
+}
+
+#greeting .tit_area {
+  padding: 0 0 40px 5%;
+  font-size: 38px;
+  font-weight: 100;
+  line-height: 1.35;
+  letter-spacing: -.5px;
+  color: #222
+}
+
+#greeting .tit_area p {
+  font-weight: 600
+}
+
+#greeting .img {
+  height: 420px;
+  background: url(../../public/AdobeStock_global.jpeg) center no-repeat;
+  background-size: cover
+}
+
+#greeting .cont {
+  padding: 40px 0 0 25%
+}
+
+#greeting .cont .pl {
+  white-space: pre-line
+}
+
+#greeting .cont .sign {
+  margin-top: 30px;
+  font-weight: 500;
+  color: #222
+}
+
+#greeting .cont .sign span {
+  margin-left: 20px;
+  font-size: 17px
+}
+
+@media (max-width: 1024px) {
+  #greeting {
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.6
+  }
+
+  #greeting .tit_area {
+    padding: 0;
+    font-size: 28px;
+    line-height: 1.4;
+    color: #222;
+    word-break: keep-all
+  }
+
+  #greeting .img {
+    height: 200px;
+    margin: 15px 0
+  }
+
+  #greeting .cont {
+    padding: 0
+  }
+
+  #greeting .cont .sign {
+    margin-top: 20px
+  }
+
+  #greeting .cont .sign span {
+    margin-left: 0;
+    font-size: 15px
+  }
+}
+
+@media (max-width: 768px) {
+  #greeting .cont .pl {
+    white-space: normal
+  }
+}
+
+@media (max-width: 480px) {
+  #greeting {
+    padding: 15px 12px
+  }
+
+  #greeting .tit_area {
+    font-size: 22px
+  }
+}

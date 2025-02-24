@@ -1,0 +1,241 @@
+/* 공통 컨테이너 스타일 */
+.business-area-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.business-area-container h2, .business-area-container h3 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* 버튼을 한 줄에 배치하는 컨테이너 스타일 */
+.business-area-container .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 20px;
+}
+
+.business-area-container > button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* 목록 스타일 */
+.business-area-list {
+    list-style: none;
+    padding: 0;
+
+    width: 100%;
+    max-width: 90%;
+}
+
+.business-area-list li {
+    width: 90%;
+    max-width: 90%;
+    padding: 20px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.business-area-list li h5 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.business-area-list li p {
+    margin: 10px 0;
+}
+
+/* JSON 출력 스타일 */
+.business-area-list pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+/* 테이블 스타일 */
+.business-area-table {
+    width: 100%;
+    max-width: 1200px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin: 20px;
+}
+
+.business-area-table th, .business-area-table td {
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: center;
+}
+
+.business-area-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.business-area-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.business-area-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* 폼 스타일 */
+.business-area-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    margin-top: 20px;
+}
+
+.business-area-container input,
+.business-area-container textarea {
+    width: 30%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.business-area-container textarea {
+    height: 100px;
+    resize: none;
+}
+
+.form-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.business-area-container .details-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.business-area-container .details-row input {
+    width: 100%;
+    padding: 10px;
+}
+
+.business-area-container .details-row button {
+    width: 20%;
+    padding: 3px;
+    font-size: 13px;
+}
+
+.details-section {
+    margin-top: 10px;
+}
+
+.details-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.detail-key {
+    font-weight: bold;
+    width: 25%;
+    text-align: center;
+}
+
+.detail-value {
+    width: 75%;
+    text-align: left;
+    color: #555;
+}
+
+.business-description-row {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* "사업 설명"과 설명 내용 사이 간격 */
+    margin-top: 10px;
+}
+
+.business-description-title {
+    width: 15%; /* "사업 설명" 너비 조정 */
+    text-align: left;
+}
+
+.business-description-content {
+    width: 85%; /* 설명 내용 너비 조정 */
+    color: #555;
+    text-align: left;
+}
+
+/* 수정 및 삭제 버튼을 중앙에 배치하는 스타일 */
+.business-area-list li .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* 버튼 간의 간격 */
+    margin-top: 20px;
+}
+
+/* 상단 버튼 스타일 */
+.area-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.area-button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    background-color: #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.area-button.active, .area-button:hover {
+    background-color: #3a3a3a;
+    color: #fff;
+}
+
+/* 버튼을 중앙에 배치하는 스타일 */
+.business-area-list li .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* details-container: "사업 유형"과 "세부 사항" 제목과 입력칸을 가로로 배치 */
+.details-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.details-container h5 {
+    margin: 0;
+    white-space: nowrap;
+}
+
+.details-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.details-row-horizontal {
+    gap: 10px;
+}
+

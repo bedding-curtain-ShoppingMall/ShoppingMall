@@ -1,0 +1,119 @@
+/* OrganizationHistory.css */
+
+/* 개발본부 이력 테이블 헤더 */
+.org-history-table-header {
+  background-color: #4e61aa !important;
+  color: white !important;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+}
+
+/* 전체 컨테이너 스타일 */
+.org-history-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 40px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* 개발본부 이력 테이블의 행 스타일 */
+.org-history-container .table-row-gradient td {
+  font-size: 0.9rem !important;
+  line-height: 1.4;
+  padding: 10px;
+  color: #333;
+}
+
+/* Timeline item */
+.timeline-item {
+  position: relative;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 20px 0;
+}
+
+.history-year {
+  position: relative;
+  left: -60px;
+  font-size: 20px;
+  color: #4e61aa;
+  font-weight: bold;
+}
+
+.history-description {
+  position: relative;
+  text-align: center;
+  padding-left: 0;
+}
+
+.history-content {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+  font-weight: normal;
+  display: inline-block;
+}
+
+.org-title_comp_name {
+  color: black;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.org-history-image {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  /* 컨테이너와 제목 크기 조정 */
+  .org-history-container {
+    padding: 20px;
+  }
+
+  .org-title_comp_name {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* 개발본부 이력 테이블의 헤더와 본문 글자 크기 조정 */
+  .org-history-table-header {
+    font-size: 1.2rem;
+    padding: 8px;
+  }
+
+  .org-history-container .table-row-gradient td {
+    font-size: 0.8rem !important;
+    padding: 8px;
+  }
+
+  .history-year {
+    font-size: 1rem;
+    left: 0px;
+    padding-right: 15px;
+  }
+
+  .history-content {
+    font-size: 0.9rem;
+  }
+
+  /* 조직도 이미지 크기 조정 */
+  .org-history-image {
+    width: 90%;
+    margin-top: 20px;
+  }
+}

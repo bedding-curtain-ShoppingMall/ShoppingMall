@@ -1,0 +1,107 @@
+/* MenuToggle.css */
+
+/* 메뉴 토글 버튼 스타일 */
+.menu-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 30%; /* 원형 모양으로 설정 */
+    background-color: #4e61aa; /* 배경색 설정 */
+    border: 2px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    z-index: 10000; /* 콘텐츠 위에 위치하도록 설정 */
+    overflow: hidden; /* 내부 요소가 넘치지 않도록 설정 */
+}
+
+ .toggle-icon {
+    width: 30px;
+    height: 30px;
+    transform: scale(1); /* 기본 크기 */
+}
+
+.menu-toggle path {
+    fill: transparent;
+    stroke: #fff;
+    stroke-width: 5; /* 기본 선 두께 */
+    stroke-linecap: round;
+    transition: all 0.3s ease;
+    transform-origin: center; /* 선의 중심을 기준으로 애니메이션 */
+}
+
+.menu-open .menu-toggle path.middle {
+    opacity: 0;
+}
+
+/* 모바일 화면에서 메뉴 토글 버튼 크기 조정 */
+@media (max-width: 361px) {
+    .menu-toggle {
+        position: fixed;
+        width: 35px;
+        height: 35px;
+    }
+
+    .menu-toggle .toggle-icon {
+        transform: scale(1); /* 적당한 크기 설정 */
+    }
+
+    .menu-toggle path {
+        stroke-width: 4; /* 선 두께를 적당히 굵게 설정 */
+    }
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* 가로 스크롤 숨기기 */
+    }
+}
+
+@media (min-width: 370px) and (max-width: 391px) {
+    .menu-toggle {
+        position: fixed;
+        top: 11px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .menu-toggle .toggle-icon {
+        transform: scale(1); /* 적당한 크기 설정 */
+    }
+
+    .menu-toggle path {
+        stroke-width: 4; /* 선 두께를 조정 */
+    }
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* 가로 스크롤 숨기기 */
+    }
+}
+
+/* 큰 화면 스마트폰 (예: 갤럭시 울트라 등) */
+@media (min-width: 412px) and (max-width: 1315px){
+    .menu-toggle {
+        position: fixed;
+        right: 8px;
+        top: 8px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .menu-toggle .toggle-icon {
+        transform: scale(1); /* 적당한 크기 설정 */
+    }
+
+    .menu-toggle path {
+        stroke-width: 4; /* 선 두께를 더 얇게 설정 */
+    }
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* 가로 스크롤 숨기기 */
+    }
+}

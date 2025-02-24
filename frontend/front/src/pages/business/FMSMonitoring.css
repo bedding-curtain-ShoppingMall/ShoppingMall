@@ -1,0 +1,111 @@
+/* Container and title */
+.monitoring-content {
+  max-width: 74%; /* 최대 너비 설정 */
+  margin: auto; /* 중앙 정렬 */
+}
+
+/* Custom card */
+.monitoring-custom-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Header with background color and rounded icon */
+.monitoring-custom-header {
+  display: flex;
+  align-items: center;
+  background-color: #4e61aa;
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+/* Section ID styling */
+.monitoring-section-id {
+  background-color: #4e61aa;
+  color: #ffffff;
+  font-weight: bold;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+  font-size: 1.5rem;
+}
+
+/* Custom title in header */
+.monitoring-custom-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* List item */
+.monitoring-list {
+  padding: 1rem;
+  margin: 0;
+}
+
+.monitoring-item {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: #343a40;
+  margin-bottom: 1rem;
+}
+
+.monitoring-item i {
+  color: #28a745;
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Image inside item */
+.monitoring-image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+  margin-top: 1rem;
+}
+
+/* Additional image styling */
+.monitoring-introduction-image-container {
+  text-align: center;
+  margin-top: 0.3rem;
+}
+
+.monitoring-introduction-company-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .monitoring-container {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .monitoring-title-comp-name {
+    font-size: 1.5rem;
+  }
+
+  .monitoring-content {
+    max-width: 100%; /* 모바일에서 최대 너비를 전체 너비로 설정 */
+    padding: 0 1rem; /* 좌우 패딩 유지 */
+    font-size: 0.9rem;
+  }
+
+  .monitoring-custom-title {
+    font-size: 1.2rem;
+  }
+
+  .monitoring-item {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,38 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/*
+https://d2v80xjmx68n4w.cloudfront.net/gigs/MaYmG1702130240.jpg
+https://www.oss.kr/storage/app/public/thumbnails/33/d8/spill_800x800_405a2dcbbbb680797ba4f6fc714af6e480222db7.jpg
+*/
+
+.test-header {
+    min-height: 100vh;
+    background-image: url('https://www.oss.kr/storage/app/public/thumbnails/33/d8/spill_800x800_405a2dcbbbb680797ba4f6fc714af6e480222db7.jpg'); /* Replace with your image */
+    background-size: cover;
+    background-attachment: fixed; /* Fixes the background */
+    color: white;
+}
+
+.test-content {
+    text-align: center;
+    padding: 300px 50px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for the text */
+}
+
+.test-scroll-content {
+    padding: 100px 20px;
+    background-color: white;
+    color: black;
+}
+
+.test-scroll-content section {
+    padding: 50px 0;
+}
+
+.test-scroll-content section:nth-child(odd) {
+    background-color: #f1f1f1;
+}

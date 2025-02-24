@@ -1,0 +1,150 @@
+/* src/pages/admin/information/Information.css */
+
+/* 공통 컨테이너 스타일 */
+.information-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 중앙 정렬 */
+    margin-top: 30px;
+    width: 100%; /* 전체 너비 사용 */
+
+}
+
+.information-container h2, .information-container h3 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* 버튼을 한 줄에 배치하는 컨테이너 스타일 */
+.information-container .button-container {
+    display: flex;
+    justify-content: center; /* 버튼들을 중앙에 정렬 */
+    gap: 10px; /* 버튼 간 간격 설정 */
+    margin-top: 20px; /* 위쪽 여백 */
+}
+
+.information-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer; /* 커서 포인터 추가 */
+}
+
+.content-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* 상단 정렬 */
+    width: 100%;
+    gap: 20px; /* AdminPage와 테이블 간 간격 */
+    margin-top: 20px; /* 상단 여백 */
+}
+
+.admin-page {
+    flex: 1;
+    /* 필요에 따라 추가 스타일 */
+}
+
+.information-table {
+    flex: 3;
+    width: 1200px;
+    max-width: 80%; /* 테이블 최대 너비 설정 */
+    table-layout: fixed; /* 테이블 너비 고정 */
+    border-collapse: collapse;
+    margin: 0; /* button-container에 이미 margin 주었으므로 여기서는 제거 */
+}
+
+.information-table th, .information-table td {
+    border: 1px solid #ddd;
+    padding: 5px 5px; /* 패딩을 작게 설정 */
+    text-align: center;
+    word-wrap: break-word; /* 내용이 길 경우 줄바꿈 허용 */
+}
+
+.information-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.information-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.information-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.information-table td button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.information-table th:nth-child(1),
+.information-table td:nth-child(1) {
+    width: 5%; /* Id 열 너비를 5%로 설정 */
+}
+
+.information-table th:nth-child(2),
+.information-table td:nth-child(2) {
+    width: 10%; /* Name 열 너비를 10%로 설정 */
+}
+
+.information-table th:nth-child(3),
+.information-table td:nth-child(3) {
+    width: 60%; /* Content 열 너비를 60%로 설정 */
+}
+
+.information-table td:nth-child(3) {
+    text-align: left; /* Content 열만 좌측 정렬 */
+}
+
+.information-table th:nth-child(4),
+.information-table td:nth-child(4) {
+    width: 20%; /* Actions 열 너비를 20%로 설정 */
+}
+
+/* 폼 스타일 */
+.information-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px; /* 폼 너비 설정 */
+    margin-top: 20px;
+}
+
+.information-container input, .information-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.information-container textarea {
+    height: 100px;
+    resize: none;
+}
+
+.form-button-container {
+    display: flex;
+    justify-content: center; /* 버튼 중앙 정렬 */
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .admin-page {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .information-table {
+        width: 100%;
+    }
+}

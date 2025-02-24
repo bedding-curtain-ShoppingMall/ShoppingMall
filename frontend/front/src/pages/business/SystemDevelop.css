@@ -1,0 +1,125 @@
+/* Container and title */
+.systemDevelop-container {
+  padding: 3rem 1rem;
+}
+
+.systemDevelop-title-comp-name {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Custom card */
+.systemDevelop-custom-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Header with background color and rounded icon */
+.systemDevelop-custom-header {
+  display: flex;
+  align-items: center;
+  background-color: #4e61aa;
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+/* Section ID styling */
+.systemDevelop-section-id {
+  background-color: #4e61aa;
+  color: #ffffff;
+  font-weight: bold;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+  font-size: 1.5rem;
+}
+
+/* Custom title in header */
+.systemDevelop-custom-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* List item */
+.systemDevelop-list {
+  padding: 1rem;
+  margin: 0;
+}
+
+.systemDevelop-item {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: #343a40;
+  margin-bottom: 1rem;
+}
+
+.systemDevelop-item i {
+  color: #28a745;
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* 시스템 개발 프로세스 흐름 */
+.systemDevelop-process-flow-container {
+  display: flex;
+  flex-wrap: wrap; /* 화면 크기에 따라 줄바꿈 */
+  justify-content: center; /* 가로 정렬 시 가운데 정렬 */
+  align-items: center; /* 세로 정렬 */
+  gap: 20px; /* 요소 간 간격 */
+}
+
+/* 프로세스 단계 */
+.systemDevelop-process-step {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto; /* 가로 방향에서 유연하게 크기 조정 */
+}
+
+/* 프로세스 박스 */
+.systemDevelop-process-box {
+  width: 200px;
+  padding: 15px;
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  font-weight: bold;
+}
+
+/* 프로세스 화살표 */
+.systemDevelop-process-arrow {
+  font-size: 2rem;
+  color: #4e61aa;
+  margin: 10px 0;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .systemDevelop-process-flow-container {
+    flex-direction: column; /* 작은 화면에서는 세로 정렬 */
+    gap: 1px; /* 간격 축소 */
+  }
+
+  .systemDevelop-process-box {
+    width: 150px; /* 작은 화면에서 박스 크기 축소 */
+    font-size: 0.9rem;
+  }
+
+  .systemDevelop-process-arrow {
+    transform: rotate(90deg); /* 화살표를 아래 방향으로 회전 */
+    font-size: 1.5rem; /* 화살표 크기 축소 */
+  }
+}

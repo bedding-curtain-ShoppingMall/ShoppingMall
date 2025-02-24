@@ -1,0 +1,198 @@
+/* 공통 컨테이너 스타일 */
+.vision-values-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.vision-values-container h2, .vision-values-container h3 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* 버튼을 한 줄에 배치하는 컨테이너 스타일 */
+.vision-values-container .button-container {
+    display: flex;
+    justify-content: center; /* 버튼들을 중앙에 정렬 */
+    gap: 10px; /* 버튼 간 간격 설정 */
+    margin-top: 20px; /* 위쪽 여백 */
+}
+
+.vision-values-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+/* 테이블 스타일 */
+.vision-values-table {
+    width: 2200px;
+    max-width: 80%; /* 테이블 최대 너비 설정 */
+    table-layout: fixed;
+    border-collapse: collapse;
+
+}
+
+.vision-values-table th, .vision-values-table td {
+    border: 1px solid #ddd;
+    padding: 5px 5px; /* 패딩을 작게 설정 */
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.vision-values-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.vision-values-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.vision-values-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.vision-values-table td button {
+    margin-right: 10px;
+}
+
+.vision-values-table th:nth-child(1),
+.vision-values-table td:nth-child(1) {
+    width: 5%; /* id 열 너비 */
+}
+
+.vision-values-table th:nth-child(2),
+.vision-values-table td:nth-child(2) {
+    width: 15%; /* name 열 너비 */
+}
+
+.vision-values-table th:nth-child(3),
+.vision-values-table td:nth-child(3) {
+    width: 20%; /* content 열 너비 */
+}
+
+.vision-values-table td:nth-child(3) {
+    text-align: left;
+}
+
+.vision-values-table th:nth-child(4),
+.vision-values-table td:nth-child(4) {
+    width: 35%; /* details 열 너비 */
+}
+
+.vision-values-table td:nth-child(4) {
+    text-align: left;
+    white-space: pre-wrap; /* 줄 바꿈 허용 */
+}
+
+.vision-values-table th:nth-child(5),
+.vision-values-table td:nth-child(5) {
+    width: 20%; /* actions 열 너비 */
+}
+
+/* 폼 스타일 */
+.vision-values-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px; /* 폼 너비 설정 */
+    margin-top: 20px;
+}
+
+.vision-values-container input,
+.vision-values-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-button-container {
+    display: flex;
+    justify-content: center; /* 버튼 중앙 정렬 */
+    gap: 10px;
+    margin: 20px 20px;
+}
+
+.vision-values-container .details-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.vision-values-container .details-row input {
+    width: 100%; /* key와 value 각각의 너비 */
+    padding: 10px 10px;
+}
+
+.vision-values-container .details-row button {
+    width: 20%;
+    padding: 3px;
+    font-size: 13px;
+}
+
+.vision-values-container .details-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.detail-key {
+    width: 20%;
+    text-align: center;
+}
+
+.detail-value {
+    width: 80%;
+    text-align: left;
+    color: #555;
+}
+
+/* details-container: 비전 세부 사항의 제목과 입력칸을 가로로 배치 */
+.details-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px; /* "비전 세부 사항" 텍스트와 입력칸 사이의 간격 */
+    margin-bottom: 15px;
+}
+
+.details-container h5 {
+    margin: 0;
+    white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+}
+
+.details-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* details-row-horizontal: 입력칸을 가로로 배치하고 삭제 버튼을 오른쪽에 */
+.details-row-horizontal {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.details-row-horizontal input {
+    flex: 1;
+}
+
+.details-row-horizontal button {
+    flex: 0 0 auto;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.add-detail-button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    font-size: 14px;
+}

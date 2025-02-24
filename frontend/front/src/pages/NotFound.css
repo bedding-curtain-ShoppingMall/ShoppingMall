@@ -1,0 +1,63 @@
+/* NotFound.css */
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* 화면 전체 높이 */
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff; /* 배경색 설정 (선택 사항) */
+}
+
+.error-message {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    margin: 0 10px 0 0; /* 이미지와 텍스트 사이의 간격 조정 */
+}
+
+.error-image {
+    width: 20px; /* 아주 작은 너비로 설정 */
+    height: auto; /* 높이는 자동으로 비율에 맞게 조정 */
+    max-width: 100%; /* 반응형 디자인을 위해 최대 너비를 100%로 설정 */
+    min-width: 10px; /* 최소 너비 설정 */
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+a, .error-link {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+a:hover, .error-link:hover {
+    text-decoration: underline;
+}
+
+/* 반응형 이미지 크기 */
+@media (max-width: 768px) {
+    .error-image {
+        width: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .error-image {
+        width: 10px;
+    }
+}

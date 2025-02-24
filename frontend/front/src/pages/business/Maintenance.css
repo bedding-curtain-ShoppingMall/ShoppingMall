@@ -1,0 +1,142 @@
+/* Container and title */
+.maintenance-container {
+    padding: 3rem 1rem;
+}
+
+.maintenance-title-comp-name {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.maintenance-content {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Custom card */
+.maintenance-custom-card {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.5rem; /* 둥근 모서리 설정 */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Header with background color and rounded icon */
+.maintenance-custom-header {
+    display: flex;
+    align-items: center;
+    background-color: #4e61aa;
+    padding: 0.75rem 1rem;
+    color: #ffffff;
+    border-radius: 0.5rem 0.5rem 0 0; /* 상단 모서리만 둥글게 */
+}
+
+/* Section ID styling */
+.maintenance-section-id {
+    background-color: #4e61aa;
+    color: #ffffff;
+    font-weight: bold;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.75rem;
+    font-size: 1.5rem;
+}
+
+/* Custom title in header */
+.maintenance-custom-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* List item (기존 스타일) */
+.maintenance-list {
+    padding: 1rem;
+    margin: 0;
+}
+
+.maintenance-item {
+    margin-bottom: 1rem;
+}
+
+.maintenance-item i {
+    color: #28a745;
+    margin-right: 0.5rem;
+    font-size: 1.1rem; /* 아이콘 크기 */
+}
+
+.maintenance-image-container img {
+    max-width: 80px; /* 최대 너비 제한 */
+    height: auto; /* 비율 유지 */
+    border-radius: 0.25rem;
+    object-fit: contain; /* 이미지 내부에 콘텐츠 맞춤 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 약간의 그림자 */
+}
+
+/* 투입장비 측정기 (4번 섹션) 전용 스타일 */
+.maintenance-horizontal-list {
+    display: grid; /* 가로 정렬 */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 한 줄에 2개씩 배치 */
+    gap: 1rem; /* 리스트 항목 간 간격 */
+    list-style: none; /* 기본 리스트 스타일 제거 */
+    justify-content: center; /* 가운데 정렬 */
+}
+
+.maintenance-horizontal-item {
+    display: flex; /* 가로 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    gap: 0.5rem; /* 내부 요소 간 간격 */
+    text-align: left; /* 텍스트 정렬 */
+    flex: 0 0 calc(50% - 1rem); /* 정확히 2개씩 배치되도록 설정 */
+    max-width: 250px; /* 최대 너비 제한 */
+    box-sizing: border-box; /* 패딩 포함 크기 계산 */
+}
+
+.maintenance-horizontal-item img {
+    width: 80px; /* 작은 화면에서 이미지 크기 */
+    height: auto; /* 비율 유지 */
+    max-height: 80px; /* 최대 높이 제한 */
+    border-radius: 0.25rem;
+    object-fit: contain; /* 이미지 잘리지 않도록 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 약간의 그림자 */
+}
+
+.maintenance-horizontal-item i {
+    font-size: 1.1rem; /* 체크 아이콘 크기 */
+    color: #28a745; /* 체크 아이콘 색상 */
+}
+
+.maintenance-item-name {
+    font-size: 1rem; /* 이름 텍스트 크기 */
+    color: #343a40;
+}
+
+.maintenance-horizontal-item .maintenance-image-container {
+    flex-shrink: 0; /* 이미지 크기 유지 */
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    .maintenance-horizontal-list {
+        flex-direction: column; /* 세로 정렬 */
+        align-items: flex-start; /* 왼쪽 정렬 */
+    }
+
+    .maintenance-horizontal-item {
+        flex: 1 1 100%; /* 한 줄에 한 항목 */
+        max-width: 100%; /* 최대 너비 제한 없음 */
+    }
+
+    .maintenance-horizontal-item img {
+        width: 60px; /* 모바일에서 더 작은 이미지 크기 */
+        max-height: 60px; /* 이미지 높이 제한 */
+    }
+}

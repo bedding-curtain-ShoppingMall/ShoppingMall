@@ -1,0 +1,143 @@
+/* ====== CSS 변수 & 기본 설정 ====== */
+:root {
+  --light-gray: #ccc;
+  --base-font: 'Noto Sans KR', sans-serif;
+  --point-font: 'Gmarket Sans', sans-serif;
+}
+/* ====== 연혁 페이지 공통 래퍼 ====== */
+.history-wrapper {
+  position: relative;
+  margin: 50px 0 100px;
+  min-height: 100%;
+}
+
+/* ====== 패럴랙스 배너 ====== */
+.history-banner {
+  position: relative;
+  background: url('../../public/AdobeStock_474618988.jpeg') center/cover no-repeat;
+  height: 400px;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-overlay {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px 40px;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+.banner-title {
+  font-size: 36px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* ====== 연혁 타임라인 영역 ====== */
+.history-wrap {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  padding: 50px 0;
+}
+
+/* 중앙 세로 라인 */
+.history-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: var(--light-gray);
+  transform: translateX(-50%);
+}
+
+/* ====== 좌/우 타임라인 항목 ====== */
+/* 공통 스타일 */
+.history-right,
+.history-left {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+
+
+/* 타임라인 점 (포인트) */
+.red-point {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #4e61aa;
+  position: absolute;
+  top: 28px; /* 상단 여백 */
+}
+
+/* ----- 우측 항목 (오른쪽에 배치) ----- */
+.history-right {
+  left: 50%;
+  text-align: left;
+}
+
+
+.history-right .red-point {
+  left: -6px;
+}
+
+/* ----- 좌측 항목 (왼쪽에 배치) ----- */
+.history-left {
+  left: 0;
+  text-align: right;
+}
+
+.history-left .red-point {
+  right: -6px;
+}
+
+/* ====== 연혁 타이틀 및 내용 ====== */
+.year {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: #000000;
+  font-weight: 700;
+}
+
+.month {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.month strong {
+  font-weight: 600;
+  color: #4e61aa;
+  font-family: var(--point-font);
+}
+
+/* ====== 반응형 (모바일) ====== */
+@media (max-width: 768px) {
+  /* 중앙 라인 제거 */
+  .history-line {
+    display: none;
+  }
+  /* 좌/우 항목 100% 폭 */
+  .history-right,
+  .history-left {
+    width: 100%;
+    text-align: left;
+    padding: 10px 20px;
+    left: 0;
+  }
+
+  /* 포인트 위치 재조정 */
+  .red-point {
+    left: 10px;
+    top: 10px;
+  }
+}

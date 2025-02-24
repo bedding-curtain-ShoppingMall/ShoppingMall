@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: ace_it_backend
+    restart: always  # 항상 재시작
+    env_file:
+      - ./.env
+    volumes:
+      - ./backend:/app
+      - /home/homepage/download:/home/homepage/download   # 추가된 볼륨 매핑
+    networks:
+      - app-network
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        - REACT_APP_API_URL=/api
+    container_name: ace_it_frontend
+    restart: always  # 항상 재시작
+    env_file:
+      - ./.env
+    volumes:
+      - frontend-build:/app/build
+    networks:
+      - app-network
+    depends_on:
+      - backend
+    command: >
+        sh -c "npm run build && tail -f /dev/null"
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    restart: always  # 항상 재시작
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - /home/homepage/data/certbot/conf:/etc/letsencrypt
+      - /home/homepage/data/certbot/www:/var/www/certbot
+      - frontend-build:/usr/share/nginx/html
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - app-network
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - /home/homepage/data/certbot/conf:/etc/letsencrypt
+      - /home/homepage/data/certbot/www:/var/www/certbot
+    command: >
+      certonly --webroot --webroot-path=/var/www/certbot --non-interactive --agree-tos
+      -m cloudsweets@naver.com -d ace24.kr -d www.ace24.kr
+    depends_on:
+      - nginx
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  frontend-build:

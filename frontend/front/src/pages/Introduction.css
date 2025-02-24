@@ -1,0 +1,229 @@
+/* Introduction.css */
+
+.introduction-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  height: 80vh; /* 페이지 전체 높이 */
+  box-sizing: border-box; /* 패딩을 포함하여 높이 계산 */
+}
+
+.introduction-image-container {
+  height: auto;
+  padding: 5px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.introduction-company-image {
+  max-width: 80%;
+  height: auto;
+  border-radius: 15px; /* 이미지 모서리를 둥글게 처리 */
+}
+
+.text-container {
+  flex: 1;
+  padding-left: 30px;
+}
+
+h2 {
+  font-size: 4.5rem;
+  color: #1a1f3a;
+  margin-bottom: 0px;
+  text-align: left; /* 리스트를 왼쪽 정렬 */
+  font-weight: bold;
+}
+
+.subheading {
+  font-size: 1.2rem;
+  color: #6c757d;
+  margin-bottom: 35px;
+  text-align: left; /* 리스트를 왼쪽 정렬 */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  font-size: 1.0rem;
+  color: #333;
+  text-align: left; /* 리스트 아이템을 왼쪽 정렬 */
+}
+
+.introduction-container ul li::before {
+  font-family: 'Font Awesome 5 Free';
+  content: '\f058';
+  margin-right: 10px;
+  color: #4e61aa;
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+.vv_text{
+  font-size: 1.9rem;
+  font: bold 1.4rem "Roboto", sans-serif;
+  font-family: 'Titillium Web', sans-serif; /* 원하는 폰트 적용 */
+}
+
+.vision-item p{
+  padding-left: 35px;
+}
+
+/* 배경 설정 */
+.a1-container {
+  background-image: url('../../public/city_view1.jpg'); /* 배경 이미지 설정 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 0;
+  position: relative;
+  color: white;
+  text-align: center;
+}
+
+/* M-Center 제목 스타일 */
+.heading-title h2 {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+  text-align: center;
+}
+
+/* 설명 텍스트 스타일 */
+.white-text.large-text {
+  font-size: 1.25rem;
+  font-weight: normal;
+  margin: 10px 0;
+  color: white;
+  text-align: center;
+}
+
+/* 숫자 및 아이콘 스타일 */
+.counters {
+  display: inline-flex; /* 중앙에 정렬 */
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px 40px;
+  color: white;
+}
+
+.count-ico img {
+  width: 50px; /* 아이콘 크기 */
+  height: 50px;
+  margin-bottom: 5px;
+}
+
+.count_nums {
+  font-size: 6.25rem; /* 숫자 크기 */
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  color: white;
+  margin: 0;
+}
+
+.counters h3 {
+  font-size: 1rem; /* HOUR 및 DAY 텍스트 크기 */
+  font-weight: 400;
+  margin-top: 5px;
+  color: white;
+}
+
+/* 노트북 화면 (768px ~ 1200px)에서 ACE IT VISION 섹션에 padding 추가 */
+@media (min-width: 768px) and (max-width: 1600px) {
+  .introduction-container {
+    padding: 40px 20px;
+    height: auto; /* 높이 자동 조절 */
+  }
+
+  .image-container,
+  .text-container {
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .text-container h2 {
+    font-size: 3.5rem; /* 글자 크기 약간 축소 */
+  }
+
+  .text-container p {
+    font-size: 1.1rem; /* 글자 크기 조정 */
+  }
+
+  .introduction-image-container {
+    padding: 10px; /* 이미지 컨테이너 간격 조정 */
+  }
+}
+
+/* 반응형 조정 */
+@media (max-width: 768px) {
+  .introduction-container {
+    flex-direction: column;
+    align-items: center;
+    height: auto; /* 모바일에서 높이 자동 조절 */
+  }
+
+  .introduction-image-container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .image-container,
+  .text-container {
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .text-container h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+  }
+
+  .text-container p {
+    font-size: 1.0rem;
+    text-align: center;
+  }
+
+  .vv_text{
+    font-size: 1.2rem;
+  }
+
+  .vision-item p{
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  .company-image {
+    margin-bottom: 20px;
+    max-width: 80%; /* 모바일에서 이미지 크기 조정 */
+  }
+
+  .a1-container {
+    padding: 50px 0;
+  }
+
+  .heading-title h2 {
+    font-size: 2rem;
+  }
+
+  .count_nums {
+    font-size: 4rem;
+  }
+
+  .white-text.large-text {
+    font-size: 1rem;
+  }
+
+}
+

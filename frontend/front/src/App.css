@@ -1,0 +1,24 @@
+/* html, body가 100% 높이를 갖도록 설정해주어야 함 */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* app-container를 세로 플렉스 컨테이너로 */
+.app-container {
+  position: relative;  /* 기존 요구사항: position: relative 유지 */
+  min-height: 100vh;   /* 화면 전체 높이 확보 */
+  display: flex;
+  flex-direction: column; /* 세로 방향 Flex */
+}
+
+/* main-content가 flex: 1을 가져, 남은 공간을 차지 */
+.main-content {
+  flex: 1;  /* 내용이 적어도 이 영역을 확보 -> Footer가 하단에 붙음 */
+  /* 필요하다면 padding, margin 등을 조절해도 됨 */
+}
+
+/* Footer는 별도 추가 설정 없어도,
+   위 .main-content가 flex-grow: 1로 공간을 채우므로 아래에 위치하게 됨 */
