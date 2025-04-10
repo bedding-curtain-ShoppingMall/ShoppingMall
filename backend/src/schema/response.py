@@ -1,9 +1,156 @@
-from datetime import date
+from datetime import date, datetime
 from typing import List, Optional, Dict
 
 from pydantic import BaseModel, ConfigDict
 
+# --------------------
+# Member
+# --------------------
+class MemberSchema(BaseModel):
+    member_id: int
+    member_name: str
+    member_accounts: str
+    member_password: str
+    member_grade: str
 
+    model_config = ConfigDict(from_attributes=True)
+
+class MemberListSchema(BaseModel):
+    members: List[MemberSchema]
+
+class UpdateMemberSchema(BaseModel):
+    member_name: str
+    member_accounts: str
+    member_password: str
+    member_grade: str
+
+    model_config = ConfigDict(from_attributes=True)
+
+# --------------------
+# Category
+# --------------------
+class CategorySchema(BaseModel):
+    category_id: int
+    category_large: str
+    category_among: str | None = None
+    category_cow: str | None = None
+
+    model_config = ConfigDict(from_attributes=True)
+
+class CategoryListSchema(BaseModel):
+    categories: List[CategorySchema]
+
+class UpdateCategorySchema(BaseModel):
+    category_large: str
+    category_among: str | None = None
+    category_cow: str | None = None
+
+    model_config = ConfigDict(from_attributes=True)
+
+# --------------------
+# Product
+# --------------------
+class ProductSchema(BaseModel):
+    product_id: int
+    product_name: str | None = None
+    product_code: str | None = None
+    product_option: str | None = None
+    product_sale: str | None = None
+    product_info_name: str | None = None
+    product_info_path: str | None = None
+    product_registration: datetime | None = None
+    product_edit: datetime | None = None
+    category_id: int
+
+    model_config = ConfigDict(from_attributes=True)
+
+class ProductListSchema(BaseModel):
+    products: List[ProductSchema]
+
+class UpdateProductSchema(BaseModel):
+    product_name: str | None = None
+    product_code: str | None = None
+    product_option: str | None = None
+    product_sale: str | None = None
+    product_info_name: str | None = None
+    product_info_path: str | None = None
+    product_registration: datetime | None = None
+    product_edit: datetime | None = None
+    category_id: int
+
+    model_config = ConfigDict(from_attributes=True)
+
+# --------------------
+# ProductImage
+# --------------------
+class ProductImageSchema(BaseModel):
+    image_id: int
+    image_featured_name: str | None = None
+    image_featured_path: str | None = None
+    img1_name: str | None = None
+    img1_path: str | None = None
+    img2_name: str | None = None
+    img2_path: str | None = None
+    img3_name: str | None = None
+    img3_path: str | None = None
+    img4_name: str | None = None
+    img4_path: str | None = None
+    img5_name: str | None = None
+    img5_path: str | None = None
+    img6_name: str | None = None
+    img6_path: str | None = None
+    product_id: int
+
+    model_config = ConfigDict(from_attributes=True)
+
+class ProductImageListSchema(BaseModel):
+    images: List[ProductImageSchema]
+
+class UpdateProductImageSchema(BaseModel):
+    image_featured_name: str | None = None
+    image_featured_path: str | None = None
+    img1_name: str | None = None
+    img1_path: str | None = None
+    img2_name: str | None = None
+    img2_path: str | None = None
+    img3_name: str | None = None
+    img3_path: str | None = None
+    img4_name: str | None = None
+    img4_path: str | None = None
+    img5_name: str | None = None
+    img5_path: str | None = None
+    img6_name: str | None = None
+    img6_path: str | None = None
+    product_id: int
+
+    model_config = ConfigDict(from_attributes=True)
+
+# --------------------
+# SellerInfo
+# --------------------
+class SellerInfoSchema(BaseModel):
+    seller_id: int
+    seller_name: str | None = None
+    seller_business_num: str | None = None
+    seller_address: str | None = None
+    seller_call_num: str | None = None
+
+    model_config = ConfigDict(from_attributes=True)
+
+class SellerInfoListSchema(BaseModel):
+    sellers: List[SellerInfoSchema]
+
+class UpdateSellerInfoSchema(BaseModel):
+    seller_name: str | None = None
+    seller_business_num: str | None = None
+    seller_address: str | None = None
+    seller_call_num: str | None = None
+
+    model_config = ConfigDict(from_attributes=True)
+
+# --------------------
+# --------------------
+# ace it
 class InfoSchema(BaseModel):
     information_id: int
     information_name: str
