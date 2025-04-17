@@ -42,7 +42,7 @@ class CategoryListSchema(BaseModel):
     categories: List[CategorySchema]
 
 class UpdateCategorySchema(BaseModel):
-    category_large: str
+    category_large: str | None = None
     category_among: str | None = None
     category_cow: str | None = None
 

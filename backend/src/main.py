@@ -2,11 +2,13 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-from api import information, history, business_client, company_vision_values, business_area, inquiry, login ,download, member
+from api import (information, history, business_client, company_vision_values, business_area, inquiry, login ,download,
+                 member, category)
 
 app = FastAPI()
 
 app.include_router(member.router, prefix="/api")
+app.include_router(category.router, prefix="/api")
 
 # --------------------
 # --------------------

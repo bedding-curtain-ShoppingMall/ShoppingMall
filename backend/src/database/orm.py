@@ -1,8 +1,9 @@
+from Tools.scripts.make_ctype import method
 from sqlalchemy import Column, Integer, String, Date, DateTime, JSON, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship
 
 from schema.request import CreateInfoRequest, CreateHistoryRequest, CreateCompanyVisionValuesRequest, \
-    CreateBusinessAreaRequest, CreateMemberRequest
+    CreateBusinessAreaRequest, CreateMemberRequest, CreateCategoryRequest
 from utils.auth import get_password_hash
 
 Base = declarative_base()
@@ -47,6 +48,14 @@ class Category(Base):
                 f"large={self.category_large}, "
                 f"among={self.category_among}, "
                 f"cow={self.category_cow})")
+
+    @classmethod
+    def create(cls, request: CreateCategoryRequest):
+        return cls(
+            category_large=request.category_large,
+            category_among=request.category_among,
+            category_cow=request.category_cow
+        )
 
 class Product(Base):
     __tablename__ = "product"
