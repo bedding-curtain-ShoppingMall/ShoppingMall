@@ -6,12 +6,13 @@ from pydantic import BaseModel, ConfigDict
 # --------------------
 # Member
 # --------------------
+
 class MemberSchema(BaseModel):
     member_id: int
-    member_name: str
-    member_accounts: str
-    member_password: str
-    member_grade: str
+    member_name: Optional[str] = None
+    member_accounts: Optional[str] = None
+    member_password: Optional[str] = None
+    member_grade: Optional[str] = None
 
     model_config = ConfigDict(from_attributes=True)
 
@@ -19,10 +20,10 @@ class MemberListSchema(BaseModel):
     members: List[MemberSchema]
 
 class UpdateMemberSchema(BaseModel):
-    member_name: str
-    member_accounts: str
-    member_password: str
-    member_grade: str
+    member_name: Optional[str] = None
+    member_accounts: Optional[str] = None
+    member_password: Optional[str] = None
+    member_grade: Optional[str] = None
 
     model_config = ConfigDict(from_attributes=True)
 

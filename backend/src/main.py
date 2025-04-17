@@ -2,9 +2,15 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-from api import information, history, business_client, company_vision_values, business_area, inquiry, login ,download
+from api import information, history, business_client, company_vision_values, business_area, inquiry, login ,download, member
 
 app = FastAPI()
+
+app.include_router(member.router, prefix="/api")
+
+# --------------------
+# --------------------
+# ace it
 
 # 모든 도메인에 대해 CORS 허용
 app.add_middleware(

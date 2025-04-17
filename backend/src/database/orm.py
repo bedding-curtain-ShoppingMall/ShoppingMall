@@ -1,17 +1,19 @@
 from sqlalchemy import Column, Integer, String, Date, DateTime, JSON, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship
 
-from schema.request import CreateInfoRequest, CreateHistoryRequest, CreateCompanyVisionValuesRequest, CreateBusinessAreaRequest
+from schema.request import CreateInfoRequest, CreateHistoryRequest, CreateCompanyVisionValuesRequest, \
+    CreateBusinessAreaRequest, CreateMemberRequest
+from utils.auth import get_password_hash
 
 Base = declarative_base()
 
 class Member(Base):
     __tablename__ = "member"
 
-    member_id = Column(Integer, primary_key=True, nullable=False)
-    member_name = Column(String(20))
-    member_accounts = Column(String(20))
-    member_password = Column(String(30))
+    member_id = Column(Integer, primary_key=True, autoincrement=True, nullable=False) # 기본키
+    member_name = Column(String(100)) # 사용자 이름
+    member_accounts = Column(String(100))
+    member_password = Column(String(200))
     member_grade = Column(String(20))
 
     def __repr__(self):
@@ -20,10 +22,22 @@ class Member(Base):
                 f"accounts={self.member_accounts}, "
                 f"grade={self.member_grade})")
 
+    @classmethod
+    def create(cls, request: CreateMemberRequest):
+        # 비밀번호 해싱 작업
+        hashed_password = get_password_hash(request.member_password)
+        return cls(
+            member_name=request.member_name,
+            member_accounts=request.member_accounts,
+            member_password=hashed_password,
+            member_grade=getattr(request, "member_grade", None) or "user"  # user 외 다른 등급(admin) 테스트 시 코드 필요
+            # member_grade="user"
+        )
+
 class Category(Base):
     __tablename__ = "category"
 
-    category_id = Column(Integer, primary_key=True, nullable=False)
+    category_id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
     category_large = Column(String(50), nullable=False)
     category_among = Column(String(50))
     category_cow = Column(String(50))
@@ -37,7 +51,7 @@ class Category(Base):
 class Product(Base):
     __tablename__ = "product"
 
-    product_id = Column(Integer, primary_key=True, nullable=False)
+    product_id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
     product_name = Column(String(300))
     product_code = Column(String(50))
     product_option = Column(String(300))
@@ -60,7 +74,7 @@ class Product(Base):
 class ProductImage(Base):
     __tablename__ = "product_image"
 
-    image_id = Column(Integer, primary_key=True, nullable=False)
+    image_id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
     image_featured_name = Column(String(300))
     image_featured_path = Column(String(300))
     img1_name = Column(String(300))
@@ -93,7 +107,7 @@ class ProductImage(Base):
 class SellerInfo(Base):
     __tablename__ = "seller_info"
 
-    seller_id = Column(Integer, primary_key=True, nullable=False)
+    seller_id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
     seller_name = Column(String(300))
     seller_business_num = Column(String(50))
     seller_address = Column(String(300))

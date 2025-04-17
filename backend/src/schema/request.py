@@ -10,7 +10,11 @@ class CreateMemberRequest(BaseModel):
     member_name: str
     member_accounts: str
     member_password: str
-    member_grade: str
+    # member_grade: Optional[str] = None # user 외 다른 등급(admin) 테스트 시 코드 필요
+
+class LoginRequest(BaseModel):
+    member_accounts: str
+    member_password: str
 
 # --------------------
 # Category
