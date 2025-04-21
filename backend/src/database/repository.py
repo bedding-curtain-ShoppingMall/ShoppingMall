@@ -12,7 +12,7 @@ from database.orm import (
     CompanyVisionValues,
     BusinessArea,
     Download,
-    Member, Category, Product, ProductImage, SellerInfo
+    Member, Category, Product, ProductImage, Seller
 )
 
 
@@ -177,29 +177,29 @@ class ProductImageRepository:
 # SellerInfo
 # --------------------
 
-class SellerInfoRepository:
+class SellerRepository:
     def __init__(self, session: Session = Depends(get_db)):
         self.session = session
 
-    def get_seller(self) -> List[SellerInfo]:
+    def get_seller(self) -> List[Seller]:
         return list(
             self.session.scalars(
-                select(SellerInfo).order_by(SellerInfo.seller_id)
+                select(Seller).order_by(Seller.seller_id)
             )
         )
 
-    def get_seller_by_id(self, id: int) -> SellerInfo:
+    def get_seller_by_id(self, id: int) -> Seller:
         return self.session.scalar(
-            select(SellerInfo).where(SellerInfo.seller_id == id)
+            select(Seller).where(Seller.seller_id == id)
         )
 
-    def create_seller(self, seller: SellerInfo) -> SellerInfo:
+    def create_seller(self, seller: Seller) -> Seller:
         self.session.add(seller)
         self.session.commit()
         self.session.refresh(seller)
         return seller
 
-    def update_seller(self, seller: SellerInfo) -> SellerInfo:
+    def update_seller(self, seller: Seller) -> Seller:
         self.session.add(seller)
         self.session.commit()
         self.session.refresh(seller)
@@ -207,7 +207,7 @@ class SellerInfoRepository:
 
     def delete_seller(self, id: int) -> None:
         self.session.execute(
-            delete(SellerInfo).where(SellerInfo.seller_id == id)
+            delete(Seller).where(Seller.seller_id == id)
         )
         self.session.commit()
 

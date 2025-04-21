@@ -1,9 +1,8 @@
-from Tools.scripts.make_ctype import method
 from sqlalchemy import Column, Integer, String, Date, DateTime, JSON, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship
 
 from schema.request import CreateInfoRequest, CreateHistoryRequest, CreateCompanyVisionValuesRequest, \
-    CreateBusinessAreaRequest, CreateMemberRequest, CreateCategoryRequest
+    CreateBusinessAreaRequest, CreateMemberRequest, CreateCategoryRequest, CreateSellerRequest
 from utils.auth import get_password_hash
 
 Base = declarative_base()
@@ -113,20 +112,28 @@ class ProductImage(Base):
                 f"img5=({self.img5_name}, {self.img5_path}), "
                 f"img6=({self.img6_name}, {self.img6_path}))")
 
-class SellerInfo(Base):
+class Seller(Base):
     __tablename__ = "seller_info"
 
     seller_id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
-    seller_name = Column(String(300))
-    seller_business_num = Column(String(50))
-    seller_address = Column(String(300))
-    seller_call_num = Column(String(50))
+    seller_name = Column(String(1000))
+    seller_content = Column(String(1000))
+    seller_file_name = Column(String(1000))
+    seller_file_path = Column(String(1000))
 
     def __repr__(self):
         return (f"SellerInfo(id={self.seller_id}, "
                 f"name={self.seller_name}, "
-                f"business_num={self.seller_business_num}, "
-                f"call_num={self.seller_call_num})")
+                f"content={self.seller_content}, "
+                f"file_name={self.seller_file_name}, "
+                f"file_path={self.seller_file_path})")
+
+    @classmethod
+    def create(cls, request: CreateSellerRequest):
+        return cls(
+            seller_name=request.seller_name,
+            seller_content=request.seller_content
+        )
 
 # --------------------
 # --------------------

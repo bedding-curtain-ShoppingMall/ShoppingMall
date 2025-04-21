@@ -1,6 +1,7 @@
 from datetime import date, datetime
-from typing import List, Optional, Dict
+from typing import List, Optional, Dict, Annotated
 
+from fastapi import Form
 from pydantic import BaseModel, ConfigDict
 
 # --------------------
@@ -129,25 +130,31 @@ class UpdateProductImageSchema(BaseModel):
 # --------------------
 # SellerInfo
 # --------------------
-class SellerInfoSchema(BaseModel):
+class SellerSchema(BaseModel):
     seller_id: int
     seller_name: str | None = None
-    seller_business_num: str | None = None
-    seller_address: str | None = None
-    seller_call_num: str | None = None
+    seller_content: str | None = None
+    seller_file_name: str | None = None
+    seller_file_path: str | None = None
 
     model_config = ConfigDict(from_attributes=True)
 
-class SellerInfoListSchema(BaseModel):
-    sellers: List[SellerInfoSchema]
+class SellerListSchema(BaseModel):
+    sellers: List[SellerSchema]
 
-class UpdateSellerInfoSchema(BaseModel):
+class UpdateSellerSchema(BaseModel):
     seller_name: str | None = None
-    seller_business_num: str | None = None
-    seller_address: str | None = None
-    seller_call_num: str | None = None
+    seller_content: str | None = None
 
     model_config = ConfigDict(from_attributes=True)
+
+    @classmethod  # fastAPI가 Form 데이터로도 UpdateSellerSchema를 사용할 수 있도록 해주는 메서드
+    def as_form(
+            cls,
+            seller_name: Annotated[str | None, Form()] = None,
+            seller_content: Annotated[str | None, Form()] = None
+    ):
+        return cls(seller_name=seller_name, seller_content=seller_content)
 
 # --------------------
 # --------------------
