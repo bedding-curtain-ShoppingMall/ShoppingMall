@@ -8,7 +8,7 @@ from api import (information, history, business_client, company_vision_values, b
 app = FastAPI()
 
 # 정적 파일 제공 경로 설정
-app.mount("/api/seller", StaticFiles(directory="seller"), name="seller")
+app.mount("/seller", StaticFiles(directory="seller"), name="seller")
 
 app.include_router(member.router, prefix="/api")
 app.include_router(category.router, prefix="/api")

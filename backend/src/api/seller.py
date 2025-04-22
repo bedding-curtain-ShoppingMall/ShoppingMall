@@ -42,7 +42,7 @@ def get_seller(
 @router.post("", status_code=201)
 def create_seller(
         request: Annotated[CreateSellerRequest, Depends(CreateSellerRequest.as_form)],
-        seller_file: Optional[UploadFile | None, File()] = None,
+        seller_file: Annotated[UploadFile | None, File()] = None,
         seller_repo: SellerRepository = Depends()
 ):
     seller: Seller = Seller.create(request=request)
@@ -73,6 +73,7 @@ def create_seller(
 def update_seller(
         seller_id: int,
         request: Annotated[UpdateSellerSchema, Depends(UpdateSellerSchema.as_form)],
+        delete_file: bool = Form(False),
         seller_file: Annotated[UploadFile | None, File()] = None,
         seller_repo: SellerRepository = Depends()
 ):
@@ -88,11 +89,22 @@ def update_seller(
     if request.seller_content is not None:
         seller.seller_content = request.seller_content
 
-    if seller_file:
+    # 기존 파일 삭제 여부 체크 시 파일 삭제
+    if delete_file and seller.seller_file_path:
+        file_to_delete = Path(seller.seller_file_path)
+        if file_to_delete.exists():
+            file_to_delete.unlink()
+        seller.seller_file_path = None
+        seller.seller_file_name = None
+
+    # 새로운 파일 업로드 요청
+    if seller_file and seller_file.filename:
 
         # 기존 파일 삭제
-        if seller.seller_file_path and Path(seller.seller_file_path).exists():
-            Path(seller.seller_file_path).unlink()
+        if seller.seller_file_path:
+            old_file = Path(seller.seller_file_path)
+            if old_file.exists():
+                old_file.unlink()
 
         file_name = seller_file.filename
         file_path = SELLER_DIR / file_name
@@ -107,7 +119,7 @@ def update_seller(
         # except Exception as e:
         #     raise HTTPException(status_code=500, detail="파일 저장 중 오류 발생")
 
-        seller.seller_file_name = seller_file.filename
+        seller.seller_file_name = file_name
         seller.seller_file_path = saved_path
 
     seller: Seller = seller_repo.update_seller(seller=seller)
@@ -123,5 +135,12 @@ def delete_seller(
 
     if not seller:
         raise HTTPException(status_code=404, detail="Seller Not Found")
+
+    # 파일이 존재한다면 삭제
+    if seller.seller_file_path:
+        file_to_delete = Path(seller.seller_file_path)
+
+        if file_to_delete.exists():
+            file_to_delete.unlink()
 
     seller_repo.delete_seller(seller_id)
