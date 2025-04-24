@@ -44,6 +44,7 @@ class CreateProductRequest(BaseModel):
     @classmethod # fastAPI가 Form 데이터로도 CreateProductRequest를 사용할 수 있도록 해주는 메서드
     def as_form(
             cls,
+            category_id: Annotated[int, Form()],
             product_name: Annotated[str | None, Form()] = None,
             product_code: Annotated[str | None, Form()] = None,
             product_option: Annotated[str | None, Form()] = None,
@@ -51,7 +52,6 @@ class CreateProductRequest(BaseModel):
             product_sale: Annotated[str | None, Form()] = None,
             product_registration = datetime.utcnow(),
             product_edit = datetime.utcnow(),
-            category_id: Annotated[int, Form()] = Form()
     ):
         return cls(
             product_name=product_name,

@@ -79,20 +79,20 @@ class UpdateProductSchema(BaseModel):
     product_info_name: str | None = None
     product_info_path: str | None = None
     product_edit: datetime | None = None
-    category_id: int
+    category_id: int | None = None
 
     model_config = ConfigDict(from_attributes=True)
 
     @classmethod  # fastAPI가 Form 데이터로도 UpdateProductSchema를 사용할 수 있도록 해주는 메서드
     def as_form(
             cls,
+            category_id: Annotated[int, Form()],
             product_name: Annotated[str | None, Form()] = None,
             product_code: Annotated[str | None, Form()] = None,
             product_option: Annotated[str | None, Form()] = None,
             product_content: Annotated[str | None, Form()] = None,
             product_sale: Annotated[str | None, Form()] = None,
-            product_edit=datetime.utcnow(),
-            category_id: Annotated[int, Form()] = Form()
+            product_edit=datetime.utcnow()
     ):
         return cls(
             product_name=product_name,
