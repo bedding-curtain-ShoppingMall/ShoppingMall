@@ -57,6 +57,7 @@ class ProductSchema(BaseModel):
     product_name: str | None = None
     product_code: str | None = None
     product_option: str | None = None
+    product_content: str | None = None
     product_sale: str | None = None
     product_info_name: str | None = None
     product_info_path: str | None = None
@@ -73,22 +74,43 @@ class UpdateProductSchema(BaseModel):
     product_name: str | None = None
     product_code: str | None = None
     product_option: str | None = None
+    product_content: str | None = None
     product_sale: str | None = None
     product_info_name: str | None = None
     product_info_path: str | None = None
-    product_registration: datetime | None = None
     product_edit: datetime | None = None
     category_id: int
 
     model_config = ConfigDict(from_attributes=True)
 
+    @classmethod  # fastAPI가 Form 데이터로도 UpdateProductSchema를 사용할 수 있도록 해주는 메서드
+    def as_form(
+            cls,
+            product_name: Annotated[str | None, Form()] = None,
+            product_code: Annotated[str | None, Form()] = None,
+            product_option: Annotated[str | None, Form()] = None,
+            product_content: Annotated[str | None, Form()] = None,
+            product_sale: Annotated[str | None, Form()] = None,
+            product_edit=datetime.utcnow(),
+            category_id: Annotated[int, Form()] = Form()
+    ):
+        return cls(
+            product_name=product_name,
+            product_code=product_code,
+            product_option=product_option,
+            product_content=product_content,
+            product_sale=product_sale,
+            product_edit=product_edit,
+            category_id=category_id
+        )
+
 # --------------------
 # ProductImage
 # --------------------
-class ProductImageSchema(BaseModel):
-    image_id: int
-    image_featured_name: str | None = None
-    image_featured_path: str | None = None
+class ProductImgSchema(BaseModel):
+    img_id: int
+    img_featured_name: str | None = None
+    img_featured_path: str | None = None
     img1_name: str | None = None
     img1_path: str | None = None
     img2_name: str | None = None
@@ -99,18 +121,16 @@ class ProductImageSchema(BaseModel):
     img4_path: str | None = None
     img5_name: str | None = None
     img5_path: str | None = None
-    img6_name: str | None = None
-    img6_path: str | None = None
     product_id: int
 
     model_config = ConfigDict(from_attributes=True)
 
-class ProductImageListSchema(BaseModel):
-    images: List[ProductImageSchema]
+class ProductImgListSchema(BaseModel):
+    all_img: List[ProductImgSchema]
 
-class UpdateProductImageSchema(BaseModel):
-    image_featured_name: str | None = None
-    image_featured_path: str | None = None
+class UpdateProductImgSchema(BaseModel):
+    img_featured_name: str | None = None
+    img_featured_path: str | None = None
     img1_name: str | None = None
     img1_path: str | None = None
     img2_name: str | None = None
@@ -121,11 +141,21 @@ class UpdateProductImageSchema(BaseModel):
     img4_path: str | None = None
     img5_name: str | None = None
     img5_path: str | None = None
-    img6_name: str | None = None
-    img6_path: str | None = None
     product_id: int
 
     model_config = ConfigDict(from_attributes=True)
+
+# --------------------
+# Product & ProductImage
+# --------------------
+class ProductWithImgSchema(BaseModel):
+    product: ProductSchema
+    img: ProductImgSchema | None = None
+
+    model_config = ConfigDict(from_attributes=True)
+
+class ProductWithImgListSchema(BaseModel):
+    products: List[ProductWithImgSchema] # products_and_all_img
 
 # --------------------
 # SellerInfo

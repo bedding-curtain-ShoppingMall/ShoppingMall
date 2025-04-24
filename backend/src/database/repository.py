@@ -12,7 +12,7 @@ from database.orm import (
     CompanyVisionValues,
     BusinessArea,
     Download,
-    Member, Category, Product, ProductImage, Seller
+    Member, Category, Product, ProductImg, Seller
 )
 
 
@@ -139,29 +139,34 @@ class ProductRepository:
 # ProductImage
 # --------------------
 
-class ProductImageRepository:
+class ProductImgRepository:
     def __init__(self, session: Session = Depends(get_db)):
         self.session = session
 
-    def get_image(self) -> List[ProductImage]:
+    def get_image(self) -> List[ProductImg]:
         return list(
             self.session.scalars(
-                select(ProductImage).order_by(ProductImage.image_id)
+                select(ProductImg).order_by(ProductImg.img_id)
             )
         )
 
-    def get_image_by_id(self, id: int) -> ProductImage:
+    def get_image_by_id(self, id: int) -> ProductImg:
         return self.session.scalar(
-            select(ProductImage).where(ProductImage.image_id == id)
+            select(ProductImg).where(ProductImg.img_id == id)
         )
 
-    def create_image(self, image: ProductImage) -> ProductImage:
+    def get_image_by_product_id(self, id: int) -> ProductImg:
+        return self.session.scalar(
+            select(ProductImg).where(ProductImg.product_id == id)
+        )
+
+    def create_image(self, image: ProductImg) -> ProductImg:
         self.session.add(image)
         self.session.commit()
         self.session.refresh(image)
         return image
 
-    def update_image(self, image: ProductImage) -> ProductImage:
+    def update_image(self, image: ProductImg) -> ProductImg:
         self.session.add(image)
         self.session.commit()
         self.session.refresh(image)
@@ -169,7 +174,7 @@ class ProductImageRepository:
 
     def delete_image(self, id: int) -> None:
         self.session.execute(
-            delete(ProductImage).where(ProductImage.image_id == id)
+            delete(ProductImg).where(ProductImg.img_id == id)
         )
         self.session.commit()
 

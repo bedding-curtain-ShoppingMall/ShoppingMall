@@ -1,6 +1,7 @@
 from datetime import date, datetime
 from typing import Optional, Dict, Annotated
 
+from Tools.scripts.abitype import classify
 from fastapi import Form
 from pydantic import BaseModel, EmailStr
 
@@ -32,6 +33,7 @@ class CreateProductRequest(BaseModel):
     product_name: Optional[str] = None
     product_code: Optional[str] = None
     product_option: Optional[str] = None
+    product_content: Optional[str] = None
     product_sale: Optional[str] = None
     product_info_name: Optional[str] = None
     product_info_path: Optional[str] = None
@@ -39,12 +41,35 @@ class CreateProductRequest(BaseModel):
     product_edit: Optional[datetime] = None
     category_id: int  # 필수값
 
+    @classmethod # fastAPI가 Form 데이터로도 CreateProductRequest를 사용할 수 있도록 해주는 메서드
+    def as_form(
+            cls,
+            product_name: Annotated[str | None, Form()] = None,
+            product_code: Annotated[str | None, Form()] = None,
+            product_option: Annotated[str | None, Form()] = None,
+            product_content: Annotated[str | None, Form()] = None,
+            product_sale: Annotated[str | None, Form()] = None,
+            product_registration = datetime.utcnow(),
+            product_edit = datetime.utcnow(),
+            category_id: Annotated[int, Form()] = Form()
+    ):
+        return cls(
+            product_name=product_name,
+            product_code=product_code,
+            product_option=product_option,
+            product_content=product_content,
+            product_sale=product_sale,
+            product_registration=product_registration,
+            product_edit=product_edit,
+            category_id=category_id
+        )
+
 # --------------------
 # ProductImage
 # --------------------
-class CreateProductImageRequest(BaseModel):
-    image_featured_name: Optional[str] = None
-    image_featured_path: Optional[str] = None
+class CreateProductImgRequest(BaseModel):
+    img_featured_name: Optional[str] = None
+    img_featured_path: Optional[str] = None
     img1_name: Optional[str] = None
     img1_path: Optional[str] = None
     img2_name: Optional[str] = None
@@ -55,8 +80,6 @@ class CreateProductImageRequest(BaseModel):
     img4_path: Optional[str] = None
     img5_name: Optional[str] = None
     img5_path: Optional[str] = None
-    img6_name: Optional[str] = None
-    img6_path: Optional[str] = None
     product_id: int  # 필수값
 
 # --------------------

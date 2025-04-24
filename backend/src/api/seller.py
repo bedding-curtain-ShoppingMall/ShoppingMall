@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import List, Optional, Annotated
+from typing import List, Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, Form, UploadFile, File
 
@@ -10,7 +10,7 @@ from schema.response import SellerListSchema, SellerSchema, UpdateSellerSchema
 
 router = APIRouter(prefix="/seller")
 
-SELLER_DIR = Path("seller/")
+SELLER_DIR = Path("static/seller/")
 SELLER_DIR.mkdir(parents=True, exist_ok=True) # 폴더 생성 코드
 
 @router.get("", status_code=200)

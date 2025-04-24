@@ -3,16 +3,18 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from api import (information, history, business_client, company_vision_values, business_area, inquiry, login, download,
-                 member, category, seller)
+                 member, category, seller, product)
 
 app = FastAPI()
 
 # 정적 파일 제공 경로 설정
-app.mount("/seller", StaticFiles(directory="seller"), name="seller")
+app.mount("/static/seller", StaticFiles(directory="static/seller"), name="seller")
+app.mount("/static/product", StaticFiles(directory="static/product"), name="product")
 
 app.include_router(member.router, prefix="/api")
 app.include_router(category.router, prefix="/api")
 app.include_router(seller.router, prefix="/api")
+app.include_router(product.router, prefix="/api")
 
 # --------------------
 # --------------------

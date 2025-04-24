@@ -2,7 +2,8 @@ from sqlalchemy import Column, Integer, String, Date, DateTime, JSON, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship
 
 from schema.request import CreateInfoRequest, CreateHistoryRequest, CreateCompanyVisionValuesRequest, \
-    CreateBusinessAreaRequest, CreateMemberRequest, CreateCategoryRequest, CreateSellerRequest
+    CreateBusinessAreaRequest, CreateMemberRequest, CreateCategoryRequest, CreateSellerRequest, CreateProductRequest, \
+    CreateProductImgRequest
 from utils.auth import get_password_hash
 
 Base = declarative_base()
@@ -63,6 +64,7 @@ class Product(Base):
     product_name = Column(String(300))
     product_code = Column(String(50))
     product_option = Column(String(300))
+    product_content = Column(String(1000))
     product_sale = Column(String(100))
     product_info_name = Column(String(300))
     product_info_path = Column(String(300))
@@ -77,14 +79,34 @@ class Product(Base):
         return (f"Product(id={self.product_id}, "
                 f"name={self.product_name}, "
                 f"code={self.product_code}, "
+                f"option={self.product_option}, "
+                f"content={self.product_content}, "
+                f"sale={self.product_sale}), "
+                f"info_name={self.product_info_name}, "
+                f"info_path={self.product_info_path}, "
+                f"registration={self.product_registration}, "
+                f"edit={self.product_edit})"
                 f"category_id={self.category_id})")
 
-class ProductImage(Base):
+    @classmethod
+    def create(cls, request: CreateProductRequest):
+        return cls(
+            product_name=request.product_name,
+            product_code=request.product_code,
+            product_option=request.product_option,
+            product_content=request.product_content,
+            product_sale=request.product_sale,
+            product_registration=request.product_registration,
+            product_edit=request.product_edit,
+            category_id=request.category_id
+        )
+
+class ProductImg(Base):
     __tablename__ = "product_image"
 
-    image_id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
-    image_featured_name = Column(String(300))
-    image_featured_path = Column(String(300))
+    img_id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
+    img_featured_name = Column(String(300))
+    img_featured_path = Column(String(300))
     img1_name = Column(String(300))
     img1_path = Column(String(300))
     img2_name = Column(String(300))
@@ -95,22 +117,25 @@ class ProductImage(Base):
     img4_path = Column(String(300))
     img5_name = Column(String(300))
     img5_path = Column(String(300))
-    img6_name = Column(String(300))
-    img6_path = Column(String(300))
     product_id = Column(Integer, ForeignKey("product.product_id"), nullable=False)
 
     # 관계 설정
     product = relationship("Product", backref="images")
 
     def __repr__(self):
-        return (f"ProductImage(id={self.image_id}, product_id={self.product_id}, "
-                f"featured_name={self.image_featured_name}, featured_path={self.image_featured_path}, "
+        return (f"ProductImage(id={self.img_id}, product_id={self.product_id}, "
+                f"featured_name={self.img_featured_name}, featured_path={self.img_featured_path}, "
                 f"img1=({self.img1_name}, {self.img1_path}), "
                 f"img2=({self.img2_name}, {self.img2_path}), "
                 f"img3=({self.img3_name}, {self.img3_path}), "
                 f"img4=({self.img4_name}, {self.img4_path}), "
-                f"img5=({self.img5_name}, {self.img5_path}), "
-                f"img6=({self.img6_name}, {self.img6_path}))")
+                f"img5=({self.img5_name}, {self.img5_path}))")
+
+    @classmethod
+    def create(cls, request: CreateProductImgRequest):
+        return cls(
+            product_id=request.product_id
+        )
 
 class Seller(Base):
     __tablename__ = "seller_info"
